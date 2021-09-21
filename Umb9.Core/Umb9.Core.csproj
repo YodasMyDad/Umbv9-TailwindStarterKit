@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="UmbracoModels\Partials\Home.Custom.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Home\Models\Home.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0-rc003" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UmbracoModels\Partials\" />
+  </ItemGroup>
+
+</Project>
