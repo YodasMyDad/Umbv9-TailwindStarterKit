@@ -50,7 +50,23 @@ namespace Umb9.Core.UmbracoModels
 		// properties
 
 		///<summary>
-		/// Umbraco Internal Redirect ID
+		/// Footer Navigation: Navigation in the footer
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0-rc003+36582f2cd2c6ddc797c85dac0a9a6572126bf602")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerNavigation")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> FooterNavigation => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(_publishedValueFallback, "footerNavigation");
+
+		///<summary>
+		/// Header Navigation: Navigation at the top of the page
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0-rc003+36582f2cd2c6ddc797c85dac0a9a6572126bf602")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("headerNavigation")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> HeaderNavigation => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(_publishedValueFallback, "headerNavigation");
+
+		///<summary>
+		/// Home Page: Select the page that should be the home page for the website
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0-rc003+36582f2cd2c6ddc797c85dac0a9a6572126bf602")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -58,7 +74,15 @@ namespace Umb9.Core.UmbracoModels
 		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent UmbracoInternalRedirectID => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "umbracoInternalRedirectID");
 
 		///<summary>
-		/// Website Name
+		/// Website Logo: The logo for this website
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0-rc003+36582f2cd2c6ddc797c85dac0a9a6572126bf602")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("websiteLogo")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops WebsiteLogo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "websiteLogo");
+
+		///<summary>
+		/// Website Name: The name of this website
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0-rc003+36582f2cd2c6ddc797c85dac0a9a6572126bf602")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

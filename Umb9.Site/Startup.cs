@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Umb9.Core.Shared.Services;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
@@ -46,8 +47,12 @@ namespace Umb9.Site
                 .AddComposers()
                 .Build();
 #pragma warning restore IDE0022 // Use expression body for methods
+
+            services.AddMemoryCache();
             services.AddServerSideBlazor();
 
+            services.AddScoped<CacheService>();
+            services.AddScoped<QueryService>();
         }
 
         /// <summary>

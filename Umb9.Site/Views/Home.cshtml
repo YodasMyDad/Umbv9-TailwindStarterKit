@@ -3,9 +3,8 @@
 @using ContentModels = Umb9.Core.UmbracoModels;
 @{
     Layout = "Master.cshtml";
+    Model.Root();
 }
 
 <p>@Model.MainHeading</p>
 <p>@Model.MainContent</p>
-
-@(await Html.RenderComponentAsync<Umb9.Site.Components.Testing>(RenderMode.ServerPrerendered))

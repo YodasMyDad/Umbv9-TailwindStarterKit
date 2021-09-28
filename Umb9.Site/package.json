@@ -4,19 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-tailwind": "postcss tailwind/styles.css -o wwwroot/css/styles.css",
-    "watch-tailwind": "postcss tailwind/styles.css -o wwwroot/css/styles.css --watch"
+    "watch-css": "tailwindcss -i tailwind/styles.css -o wwwroot/css/styles.css --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^4.0.3",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/typography": "^0.4.1",
-    "autoprefixer": "^10.3.4",
-    "postcss": "^8.3.6",
-    "postcss-cli": "^8.3.1",
+    "autoprefixer": "^10.3.5",
+    "esbuild": "^0.12.28",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.7",
     "tailwindcss": "^2.2.15"
   }
 }

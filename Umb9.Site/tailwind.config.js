@@ -1,5 +1,6 @@
 module.exports = {
-  purge: [],
+  mode: 'jit',
+    purge: ["Views/**/*.cshtml", "Views/**/*.razor"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
