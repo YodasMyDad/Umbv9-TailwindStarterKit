@@ -3,7 +3,7 @@ module.exports = {
     purge: ["Views/**/*.cshtml", "Views/**/*.razor"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+      extend: {}
   },
   variants: {
     extend: {},

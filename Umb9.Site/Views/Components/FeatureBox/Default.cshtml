@@ -1,0 +1,21 @@
+﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
+@{
+    var content = Model.Content as Umb9.Core.UmbracoModels.FeatureBox;
+    //var settings = (ContentModels.BlockListBlockSettings)Model.Settings;
+}
+
+<div class="pt-6">
+    <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
+        <div class="-mt-6">
+            <div>
+                <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">                    
+                    <img class="fill-current h-6 w-6 text-white" src="@content.SVgicon.MediaUrl()" alt="@content.Heading">
+                </span>
+            </div>
+            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">@content.Heading</h3>
+            <div class="mt-5 text-base text-gray-500">
+                @Html.Raw(content.Text)
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,8 +10,8 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
         <PackageReference Include="Our.Umbraco.Community.Contentment" Version="3.0.0-alpha005" />
-        <PackageReference Include="Umbraco.Cms" Version="9.0.0-rc003" />
-        <PackageReference Include="Umbraco.Cms.SqlCe" Version="9.0.0-rc003" />
+        <PackageReference Include="Umbraco.Cms" Version="9.0.0" />
+        <PackageReference Include="Umbraco.Cms.SqlCe" Version="9.0.0" />
         <PackageReference Include="Umbraco.SqlServerCE" Version="4.0.0.1" />
     </ItemGroup>
 

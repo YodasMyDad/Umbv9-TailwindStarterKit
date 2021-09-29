@@ -52,7 +52,6 @@ namespace Umb9.Site
             services.AddServerSideBlazor();
 
             services.AddScoped<CacheService>();
-            services.AddScoped<QueryService>();
         }
 
         /// <summary>

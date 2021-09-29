@@ -1,10 +1,8 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
 @using ContentModels = Umb9.Core.UmbracoModels;
 @{
     Layout = "Master.cshtml";
     Model.Root();
 }
 
-<p>@Model.MainHeading</p>
-<p>@Model.MainContent</p>
+@(await Html.PartialAsync("_BlockListComponents", Model.ContentBlocks))
