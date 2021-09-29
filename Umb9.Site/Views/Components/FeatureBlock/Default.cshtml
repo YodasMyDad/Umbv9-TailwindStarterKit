@@ -1,30 +1,32 @@
 ﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
 @{
     var content = Model.Content as Umb9.Core.UmbracoModels.FeatureBlock;
-    //var settings = (ContentModels.BlockListBlockSettings)Model.Settings;
+    var settings = Model.Settings as Umb9.Core.UmbracoModels.FeatureBlockSettings;
+    var gridColumns = settings?.GridColumns > 0 ? settings.GridColumns : 3;
 }
-
-<div class="relative bg-white py-16 sm:py-24 lg:py-24">
-    <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-        @if (!content.FeatureName.IsNullOrWhiteSpace())
-        {
-            <h2 class="text-base font-semibold tracking-wider text-indigo-600 uppercase">@content.FeatureName</h2>
-        }
-        @if (!content.Heading.IsNullOrWhiteSpace())
-        {
-            <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-                @content.Heading
-            </p>
-        }
-        @if (content.OpeningParagraph != null)
-        {
-            <p class="mt-5 prose max-w-prose mx-auto text-xl text-gray-500">
-                @Html.Raw(content.OpeningParagraph)
-            </p>
-        }
-        <div class="mt-12">
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                @(await Html.PartialAsync("_BlockListComponents", content.FeatureBoxes))
+<div class="@(settings.PaddingTop.IsNullOrWhiteSpace() ? "" : $"pt-{settings.PaddingTop} ")@(settings.PaddingBottom.IsNullOrWhiteSpace() ? "" : $"pb-{settings.PaddingBottom}")">
+    <div class="relative bg-white py-16 sm:py-24 lg:py-24">
+        <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
+            @if (!content.FeatureName.IsNullOrWhiteSpace())
+            {
+                <h2 class="text-base font-semibold tracking-wider text-indigo-600 uppercase">@content.FeatureName</h2>
+            }
+            @if (!content.Heading.IsNullOrWhiteSpace())
+            {
+                <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
+                    @content.Heading
+                </p>
+            }
+            @if (content.OpeningParagraph != null)
+            {
+                <p class="mt-5 prose max-w-prose mx-auto text-xl text-gray-500">
+                    @Html.Raw(content.OpeningParagraph)
+                </p>
+            }
+            <div class="mt-12">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-@gridColumns">
+                    @(await Html.PartialAsync("_BlockListComponents", content.FeatureBoxes))
+                </div>
             </div>
         </div>
     </div>

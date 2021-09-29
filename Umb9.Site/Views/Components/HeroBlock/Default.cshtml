@@ -1,46 +1,84 @@
 ﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
 @{
     var content = Model.Content as Umb9.Core.UmbracoModels.HeroBlock;
-    //var settings = (ContentModels.BlockListBlockSettings)Model.Settings;
+    var settings = Model.Settings as Umb9.Core.UmbracoModels.HeroBlockSettings;
 }
 
-<div class="relative pb-12">
-    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
-            <div class="absolute inset-0">
-                <img class="h-full w-full object-cover" src="@content.BackgroundImage.MediaUrl()?width=1216" alt="@content.BackgroundImage.Name">
-                <div class="absolute inset-0 bg-indigo-700 mix-blend-multiply"></div>
-            </div>
-            <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-                <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                    @if (!content.HeadingLineOne.IsNullOrWhiteSpace())
-                    {
-                        <span class="block text-white">@content.HeadingLineOne</span>
-                    }
-
-                    @if (!content.HeadingLineTwo.IsNullOrWhiteSpace())
-                    {
-                        <span class="block text-indigo-200">@content.HeadingLineTwo</span>
-                    }
-                </h1>
-
-                <div class="mt-6 prose prose-purple max-w-prose text-indigo-200 mx-auto text-center text-xl sm:max-w-3xl">
-                    @Html.Raw(content.BodyText)
+<div class="@(settings.PaddingTop.IsNullOrWhiteSpace() ? "" : $"pt-{settings.PaddingTop} ")@(settings.PaddingBottom.IsNullOrWhiteSpace() ? "" : $"pb-{settings.PaddingBottom}")">
+    <div class="relative pb-12">
+        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+                <div class="absolute inset-0">
+                    <img class="h-full w-full object-cover" src="@content.BackgroundImage.MediaUrl()?width=1216" alt="@content.BackgroundImage.Name">
+                    <div class="absolute inset-0 bg-indigo-700 mix-blend-multiply"></div>
                 </div>
+                <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
 
-                @if (content.ActionButtons.Any())
-                {
-                    <div class="mt-10 max-w-sm mx-auto sm:space-x-2 sm:max-w-none sm:flex sm:justify-center">
-                        @foreach (var btn in content.ActionButtons)
-                        {
-                            <a href="@btn.Url" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto">
-                                @btn.Name
-                            </a>
-                        }
+                    @{HeadingTypes("text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl");}
+
+                    <div class="mt-6 prose prose-purple max-w-prose text-indigo-200 mx-auto text-center text-xl sm:max-w-3xl">
+                        @Html.Raw(content.BodyText)
                     </div>
-                }
+
+                    @if (content.ActionButtons.Any())
+                    {
+                        <div class="mt-10 max-w-sm mx-auto sm:space-x-2 sm:max-w-none sm:flex sm:justify-center">
+                            @foreach (var btn in content.ActionButtons)
+                            {
+                                <a href="@btn.Url" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto">
+                                    @btn.Name
+                                </a>
+                            }
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+@{
+    void HeadingTypes(string cssClasses)
+    {
+        @switch (settings.HeadingType)
+        {
+            case "H1":
+                <h1 class="@cssClasses">@{HeadingContent();}</h1>
+                break;
+
+            case "H2":
+                <h2 class="@cssClasses">@{HeadingContent();}</h2>
+                break;
+
+            case "H4":
+                <h4 class="@cssClasses">@{HeadingContent();}</h4>
+                break;
+
+            case "H5":
+                <h5 class="@cssClasses">@{HeadingContent();}</h5>
+                break;
+
+            case "H6":
+                <h6 class="@cssClasses">@{HeadingContent();}</h6>
+                break;
+
+            default:
+                <h3 class="@cssClasses">@{HeadingContent();}</h3>
+                break;
+        }
+    }
+
+    void HeadingContent()
+    {
+        @if (!content.HeadingLineOne.IsNullOrWhiteSpace())
+        {
+            <span class="block text-white">@content.HeadingLineOne</span>
+        }
+
+        @if (!content.HeadingLineTwo.IsNullOrWhiteSpace())
+        {
+            <span class="block text-indigo-200">@content.HeadingLineTwo</span>
+        }
+    }
+}
