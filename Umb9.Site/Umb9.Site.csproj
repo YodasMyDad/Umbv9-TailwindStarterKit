@@ -32,6 +32,12 @@
 
 
     <ItemGroup>
+      <Content Include="wwwroot\media\braf2fxb\people-at-desk.jfif" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
       <ProjectReference Include="..\Umb9.Core\Umb9.Core.csproj" />
     </ItemGroup>
 
@@ -39,6 +45,13 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\img\" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <None Include="wwwroot\media\rvdlbc5m\workflow-mark-indigo-600.svg" />
+      <None Include="wwwroot\media\we1ahghz\tick.svg" />
     </ItemGroup>
 
     <!-- Set this to true if ModelsBuilder mode is not InMemoryAuto-->

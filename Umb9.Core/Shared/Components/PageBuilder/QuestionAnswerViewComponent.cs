@@ -6,8 +6,8 @@ namespace Umb9.Core.Shared.Components.PageBuilder
     /// <summary>
     /// Feature box view component
     /// </summary>
-    [ViewComponent(Name = "featureBox")]
-    public class FeatureBoxViewComponent : ViewComponent
+    [ViewComponent(Name = "questionAnswer")]
+    public class QuestionAnswerViewComponent : ViewComponent
     {
         public IViewComponentResult Invoke(BlockListItem model)
         {

@@ -1,0 +1,25 @@
+﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
+@{
+    var content = Model.Content as Umb9.Core.UmbracoModels.QuestionAnswerBlock;
+    //var settings = (ContentModels.BlockListBlockSettings)Model.Settings;
+}
+
+<div class="bg-white">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
+        <div class="lg:grid lg:grid-cols-3 lg:gap-8">
+            <div>
+                <h2 class="text-3xl font-extrabold text-gray-900">
+                    @content.Heading
+                </h2>
+                <div class="mt-4 prose text-lg text-gray-500">
+                    @Html.Raw(content.Text)
+                </div>
+            </div>
+            <div class="mt-12 lg:mt-0 lg:col-span-2">
+                <div class="space-y-12">
+                    @(await Html.PartialAsync("_BlockListComponents", content.QuestionsAnswers))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
