@@ -9,13 +9,11 @@
         <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
             @if (!content.FeatureName.IsNullOrWhiteSpace())
             {
-                <h2 class="text-base font-semibold tracking-wider text-indigo-600 uppercase">@content.FeatureName</h2>
+                <p class="text-base font-semibold tracking-wider text-indigo-600 uppercase">@content.FeatureName</p>
             }
             @if (!content.Heading.IsNullOrWhiteSpace())
             {
-                <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-                    @content.Heading
-                </p>
+                HeadingTypes("mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl");
             }
             @if (content.OpeningParagraph != null)
             {
@@ -31,3 +29,35 @@
         </div>
     </div>
 </div>
+
+@{
+    void HeadingTypes(string cssClasses)
+    {
+        @switch (settings.HeadingType)
+        {
+            case "H1":
+                <h1 class="@cssClasses">@content.Heading</h1>
+                break;
+
+            case "H2":
+                <h2 class="@cssClasses">@content.Heading</h2>
+                break;
+
+            case "H4":
+                <h4 class="@cssClasses">@content.Heading</h4>
+                break;
+
+            case "H5":
+                <h5 class="@cssClasses">@content.Heading</h5>
+                break;
+
+            case "H6":
+                <h6 class="@cssClasses">@content.Heading</h6>
+                break;
+
+            default:
+                <h3 class="@cssClasses">@content.Heading</h3>
+                break;
+        }
+    }
+}

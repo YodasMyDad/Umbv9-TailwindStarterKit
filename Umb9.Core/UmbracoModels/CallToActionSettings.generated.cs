@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umb9.Core.UmbracoModels
 {
-	/// <summary>Feature Block Settings</summary>
-	[PublishedModel("featureBlockSettings")]
-	public partial class FeatureBlockSettings : PublishedElementModel, IBlockListSharedSettings
+	/// <summary>Call To Action Settings</summary>
+	[PublishedModel("callToActionSettings")]
+	public partial class CallToActionSettings : PublishedElementModel, IBlockListSharedSettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
-		public new const string ModelTypeAlias = "featureBlockSettings";
+		public new const string ModelTypeAlias = "callToActionSettings";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
@@ -34,27 +34,20 @@ namespace Umb9.Core.UmbracoModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<FeatureBlockSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<CallToActionSettings, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public FeatureBlockSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public CallToActionSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
 		}
 
 		// properties
-
-		///<summary>
-		/// Grid Columns: The amount of columns per row for the feature boxes
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
-		[ImplementPropertyType("gridColumns")]
-		public virtual int GridColumns => this.Value<int>(_publishedValueFallback, "gridColumns");
 
 		///<summary>
 		/// Heading Type

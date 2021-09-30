@@ -1,36 +1,73 @@
 ﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
 @{
     var content = Model.Content as Umb9.Core.UmbracoModels.CallToActionBlock;
-    //var settings = (ContentModels.BlockListBlockSettings)Model.Settings;
+    var settings = Model.Settings as Umb9.Core.UmbracoModels.CallToActionSettings;
 }
 
-<div class="bg-indigo-700">
-    <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-            @if (!content.HeadingLineOne.IsNullOrWhiteSpace())
-            {
-                <span class="block">@content.HeadingLineOne</span>
-            }
-
-            @if (!content.HeadingLineTwo.IsNullOrWhiteSpace())
-            {
-                <span class="block">@content.HeadingLineTwo</span>
-            }
-        </h2>
-        <div class="mt-4 text-lg prose max-w-prose text-indigo-200">
-            @Html.Raw(content.BodyText)
-        </div>
-
-        @if (content.ActionButtons.Any())
-        {
-            <div class="sm:space-x-2">
-                @foreach (var btn in content.ActionButtons)
-                {
-                    <a href="@btn.Url" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto">
-                        @btn.Name
-                    </a>
-                }
+<div class="@(settings.PaddingTop.IsNullOrWhiteSpace() ? "" : $"pt-{settings.PaddingTop} ")@(settings.PaddingBottom.IsNullOrWhiteSpace() ? "" : $"pb-{settings.PaddingBottom}")">
+    <div class="bg-indigo-700">
+        <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+            @{HeadingTypes("text-3xl font-extrabold text-white sm:text-4xl");}
+            <div class="mt-4 text-lg prose max-w-prose text-indigo-200">
+                @Html.Raw(content.BodyText)
             </div>
-        }
+
+            @if (content.ActionButtons.Any())
+            {
+                <div class="sm:space-x-2">
+                    @foreach (var btn in content.ActionButtons)
+                    {
+                        <a href="@btn.Url" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto">
+                            @btn.Name
+                        </a>
+                    }
+                </div>
+            }
+        </div>
     </div>
 </div>
+
+@{
+    void HeadingTypes(string cssClasses)
+    {
+        @switch (settings.HeadingType)
+        {
+            case "H1":
+                <h1 class="@cssClasses">@{HeadingContent();}</h1>
+                break;
+
+            case "H2":
+                <h2 class="@cssClasses">@{HeadingContent();}</h2>
+                break;
+
+            case "H4":
+                <h4 class="@cssClasses">@{HeadingContent();}</h4>
+                break;
+
+            case "H5":
+                <h5 class="@cssClasses">@{HeadingContent();}</h5>
+                break;
+
+            case "H6":
+                <h6 class="@cssClasses">@{HeadingContent();}</h6>
+                break;
+
+            default:
+                <h3 class="@cssClasses">@{HeadingContent();}</h3>
+                break;
+        }
+    }
+
+    void HeadingContent()
+    {
+        @if (!content.HeadingLineOne.IsNullOrWhiteSpace())
+        {
+            <span class="block">@content.HeadingLineOne</span>
+        }
+
+        @if (!content.HeadingLineTwo.IsNullOrWhiteSpace())
+        {
+            <span class="block">@content.HeadingLineTwo</span>
+        }
+    }
+}

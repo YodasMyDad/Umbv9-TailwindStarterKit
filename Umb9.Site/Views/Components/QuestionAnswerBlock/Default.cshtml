@@ -1,10 +1,10 @@
 ﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
 @{
     var content = Model.Content as Umb9.Core.UmbracoModels.QuestionAnswerBlock;
-    //var settings = (ContentModels.BlockListBlockSettings)Model.Settings;
+    var settings = Model.Settings as Umb9.Core.UmbracoModels.QuestionAnswerSettings;
 }
 
-<div class="bg-white">
+<div class="bg-white @(settings.PaddingTop.IsNullOrWhiteSpace() ? "" : $"pt-{settings.PaddingTop} ")@(settings.PaddingBottom.IsNullOrWhiteSpace() ? "" : $"pb-{settings.PaddingBottom}")">
     <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
         <div class="lg:grid lg:grid-cols-3 lg:gap-8">
             <div>

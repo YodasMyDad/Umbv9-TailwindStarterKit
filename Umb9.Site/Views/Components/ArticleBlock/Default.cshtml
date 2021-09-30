@@ -1,10 +1,9 @@
 ﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
 @{
     var content = Model.Content as Umb9.Core.UmbracoModels.ArticleBlock;
-    //var settings = (ContentModels.BlockListBlockSettings)Model.Settings;
+    var settings = Model.Settings as Umb9.Core.UmbracoModels.ArticleSettings;
 }
-
-<div class="relative py-16 bg-white overflow-hidden">
+<div class="relative bg-white overflow-hidden @(settings.PaddingTop.IsNullOrWhiteSpace() ? "pt-16 " : $"pt-{settings.PaddingTop} ")@(settings.PaddingBottom.IsNullOrWhiteSpace() ? "pb-16" : $"pb-{settings.PaddingBottom}")">
     <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
         <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
             <svg class="absolute top-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
@@ -35,13 +34,7 @@
     </div>
     <div class="relative px-4 sm:px-6 lg:px-8">
         <div class="text-lg max-w-prose mx-auto">
-            <h1>
-                @if (!content.BlockName.IsNullOrWhiteSpace())
-                {
-                    <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">@content.BlockName</span>
-                }
-                <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">@content.Heading</span>
-            </h1>
+            @{HeadingTypes(string.Empty);}
             @if (!content.OpeningParagraph.IsNullOrWhiteSpace())
             {
                 <p class="mt-8 text-xl text-gray-500 leading-8">
@@ -54,3 +47,45 @@
         </div>
     </div>
 </div>
+
+
+@{
+    void HeadingTypes(string cssClasses)
+    {
+        @switch (settings.HeadingType)
+        {
+            case "H1":
+                <h1 class="@cssClasses">@{HeadingContent();}</h1>
+                break;
+
+            case "H2":
+                <h2 class="@cssClasses">@{HeadingContent();}</h2>
+                break;
+
+            case "H4":
+                <h4 class="@cssClasses">@{HeadingContent();}</h4>
+                break;
+
+            case "H5":
+                <h5 class="@cssClasses">@{HeadingContent();}</h5>
+                break;
+
+            case "H6":
+                <h6 class="@cssClasses">@{HeadingContent();}</h6>
+                break;
+
+            default:
+                <h3 class="@cssClasses">@{HeadingContent();}</h3>
+                break;
+        }
+    }
+
+    void HeadingContent()
+    {
+        @if (!content.BlockName.IsNullOrWhiteSpace())
+        {
+            <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">@content.BlockName</span>
+        }
+        <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">@content.Heading</span>
+    }
+}
