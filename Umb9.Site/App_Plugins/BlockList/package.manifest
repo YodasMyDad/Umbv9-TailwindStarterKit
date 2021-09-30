@@ -1,0 +1,6 @@
+﻿{
+    "javascript": [
+        "~/App_Plugins/BlockList/HeroBlock.Controller.js",
+        "~/App_Plugins/BlockList/FeatureBlock.Controller.js"
+    ]
+}

@@ -1,0 +1,42 @@
+﻿<div ng-click="api.editBlock(block, block.hideContentInOverlay, index, parentForm)" ng-controller="FeatureBlock.Controller as vm">
+
+    <!--
+        block.data
+        block.settingsData
+    -->
+
+    <div class="relative bg-white py-16 sm:py-24 lg:py-24">
+        <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
+
+            <p class="text-base font-semibold tracking-wider text-indigo-600 uppercase">{{block.data.featureName}}</p>
+
+            <h3 class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">{{block.data.heading}}</h3>
+
+            <p class="mt-5 prose max-w-prose mx-auto text-xl text-gray-500" ng-bind-html="block.data.openingParagraph">
+
+            </p>
+            <div class="mt-12">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+                    <div class="mt-6 bg-gray-50 rounded-lg" ng-repeat="box in block.data.featureBoxes.contentData">
+                        <div class="flow-root px-6 pb-8">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
+                                        <img class="fill-current h-6 w-6 text-white" ng-init="loadBoxSvg(box)" ng-src="{{box.ImageUrl}}" alt="">
+                                    </span>
+                                </div>
+                                <h4 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">{{box.Heading}}</h4>
+                        
+                                <div class="mt-5 text-base text-gray-500" ng-bind-html="box.text">    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

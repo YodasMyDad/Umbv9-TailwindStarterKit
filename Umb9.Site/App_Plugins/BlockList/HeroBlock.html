@@ -1,0 +1,39 @@
+﻿<div ng-click="api.editBlock(block, block.hideContentInOverlay, index, parentForm)" ng-controller="HeroBlock.Controller as vm">
+
+        <!--
+            block.data
+            block.settingsData
+        -->
+
+        <div class="relative pb-12">
+            <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+                    <div class="absolute inset-0">
+                        <img class="h-full w-full object-cover" ng-if="vm.imageUrl" ng-src="{{vm.imageUrl}}?width=1216" alt="">
+                        <div class="absolute inset-0 bg-indigo-700 mix-blend-multiply"></div>
+                    </div>
+                    <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+
+                        <h3 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                            <span class="block text-white">{{block.data.headingLineOne}}</span>
+                            <span class="block text-indigo-200">{{block.data.headingLineTwo}}</span>
+                        </h3>
+
+                        <div class="mt-6 prose prose-purple max-w-prose text-indigo-200 mx-auto text-center text-xl sm:max-w-3xl" ng-bind-html="block.data.bodyText">
+                        </div>
+
+                        <div class="mt-10 max-w-sm mx-auto sm:space-x-2 sm:max-w-none sm:flex sm:justify-center">
+                            <span ng-repeat="link in block.data.actionButtons" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto">
+                                {{link.name}}
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+</div>
