@@ -1,0 +1,25 @@
+﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
+@{
+    var content = Model.Content as Umb9.Core.UmbracoModels.ContentBox;
+}
+
+
+<a href="@content.Link?.Url" class="block flex flex-col rounded-lg shadow-lg overflow-hidden">
+    @if (content.CoverImage != null)
+    {
+        <div class="flex-shrink-0">
+            <img class="h-48 w-full object-cover" src="@content.CoverImage.MediaUrl()?width=450" alt="@content.Heading">
+        </div>
+    }
+    <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+        <div class="flex-1">
+            <p class="text-xl font-semibold text-gray-900">
+                @content.Heading
+            </p>
+            <p class="mt-3 text-base text-gray-500">
+                @content.Text
+            </p>
+
+        </div>
+    </div>
+</a>

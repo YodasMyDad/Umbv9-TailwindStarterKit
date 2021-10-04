@@ -2,7 +2,6 @@
 
     var vm = this;
 
-
     $scope.loadBoxSvg = function (box) {
 
         entityResource.getById(box.sVGIcon[0].mediaKey, "Media")
