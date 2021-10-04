@@ -4,10 +4,10 @@ using Umbraco.Cms.Core.Models.Blocks;
 namespace Umb9.Core.Shared.Components.PageBuilder
 {
     /// <summary>
-    /// Question answer view component
+    /// Stats block view component
     /// </summary>
-    [ViewComponent(Name = "questionAnswer")]
-    public class QuestionAnswerViewComponent : ViewComponent
+    [ViewComponent(Name = "statsBlock")]
+    public class StatsBlockViewComponent : ViewComponent
     {
         public IViewComponentResult Invoke(BlockListItem model)
         {

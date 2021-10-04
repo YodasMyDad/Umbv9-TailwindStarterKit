@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umb9.Core.UmbracoModels
 {
-	/// <summary>Article Settings</summary>
-	[PublishedModel("articleSettings")]
-	public partial class ArticleSettings : PublishedElementModel, IBlockListSharedSettings
+	/// <summary>Stats Block</summary>
+	[PublishedModel("statsBlock")]
+	public partial class StatsBlock : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
-		public new const string ModelTypeAlias = "articleSettings";
+		public new const string ModelTypeAlias = "statsBlock";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
@@ -34,14 +34,14 @@ namespace Umb9.Core.UmbracoModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ArticleSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<StatsBlock, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public ArticleSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public StatsBlock(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,34 +50,67 @@ namespace Umb9.Core.UmbracoModels
 		// properties
 
 		///<summary>
-		/// Heading Type
+		/// Heading
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("headingType")]
-		public virtual string HeadingType => this.Value<string>(_publishedValueFallback, "headingType");
+		[ImplementPropertyType("heading")]
+		public virtual string Heading => this.Value<string>(_publishedValueFallback, "heading");
 
 		///<summary>
-		/// Remove Background Pattern
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
-		[ImplementPropertyType("removeBackgroundPattern")]
-		public virtual bool RemoveBackgroundPattern => this.Value<bool>(_publishedValueFallback, "removeBackgroundPattern");
-
-		///<summary>
-		/// Padding Bottom: Optional: Add custom padding to the bottom of this block.
+		/// Stat One Name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("paddingBottom")]
-		public virtual string PaddingBottom => global::Umb9.Core.UmbracoModels.BlockListSharedSettings.GetPaddingBottom(this, _publishedValueFallback);
+		[ImplementPropertyType("statOneName")]
+		public virtual string StatOneName => this.Value<string>(_publishedValueFallback, "statOneName");
 
 		///<summary>
-		/// Padding Top: Optional: Add custom padding to the top of this block.
+		/// Stat One Value
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("paddingTop")]
-		public virtual string PaddingTop => global::Umb9.Core.UmbracoModels.BlockListSharedSettings.GetPaddingTop(this, _publishedValueFallback);
+		[ImplementPropertyType("statOneValue")]
+		public virtual string StatOneValue => this.Value<string>(_publishedValueFallback, "statOneValue");
+
+		///<summary>
+		/// Stat Three Name
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statThreeName")]
+		public virtual string StatThreeName => this.Value<string>(_publishedValueFallback, "statThreeName");
+
+		///<summary>
+		/// Stat Three Value
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statThreeValue")]
+		public virtual string StatThreeValue => this.Value<string>(_publishedValueFallback, "statThreeValue");
+
+		///<summary>
+		/// Stat Two Name
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statTwoName")]
+		public virtual string StatTwoName => this.Value<string>(_publishedValueFallback, "statTwoName");
+
+		///<summary>
+		/// Stat Two Value
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statTwoValue")]
+		public virtual string StatTwoValue => this.Value<string>(_publishedValueFallback, "statTwoValue");
+
+		///<summary>
+		/// Text
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("text")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Text => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "text");
 	}
 }

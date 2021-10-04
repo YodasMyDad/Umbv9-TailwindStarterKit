@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umb9.Core.UmbracoModels
 {
-	/// <summary>Article Settings</summary>
-	[PublishedModel("articleSettings")]
-	public partial class ArticleSettings : PublishedElementModel, IBlockListSharedSettings
+	/// <summary>Stats Settings</summary>
+	[PublishedModel("statsSettings")]
+	public partial class StatsSettings : PublishedElementModel, IBlockListSharedSettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
-		public new const string ModelTypeAlias = "articleSettings";
+		public new const string ModelTypeAlias = "statsSettings";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
@@ -34,14 +34,14 @@ namespace Umb9.Core.UmbracoModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ArticleSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<StatsSettings, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public ArticleSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public StatsSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -56,13 +56,6 @@ namespace Umb9.Core.UmbracoModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("headingType")]
 		public virtual string HeadingType => this.Value<string>(_publishedValueFallback, "headingType");
-
-		///<summary>
-		/// Remove Background Pattern
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
-		[ImplementPropertyType("removeBackgroundPattern")]
-		public virtual bool RemoveBackgroundPattern => this.Value<bool>(_publishedValueFallback, "removeBackgroundPattern");
 
 		///<summary>
 		/// Padding Bottom: Optional: Add custom padding to the bottom of this block.
