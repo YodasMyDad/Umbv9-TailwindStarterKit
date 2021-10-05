@@ -1,4 +1,5 @@
-﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
+﻿@using Umb9.Core.Forms.Models 
+@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
 @{
     var content = Model.Content as Umb9.Core.UmbracoModels.ContactFormBlock;
     var settings = Model.Settings as Umb9.Core.UmbracoModels.ContactFormSettings;
@@ -30,43 +31,7 @@
                 </div>
             </div>
             <div class="mt-12">
-                <form action="#" method="POST" class="grid grid-cols-1 gap-y-6 sm:gap-x-8">
-                    <div>
-                        <label for="first-name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <div class="mt-1">
-                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="company" class="block text-sm font-medium text-gray-700">Company</label>
-                        <div class="mt-1">
-                            <input type="text" name="company" id="company" autocomplete="organization" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <div class="mt-1">
-                            <input id="email" name="email" type="email" autocomplete="email" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="phone-number" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                        <div class="mt-1">
-                            <input type="text" name="phone-number" id="phone-number" autocomplete="tel" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" placeholder="01234 567890">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                        <div class="mt-1">
-                            <textarea id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"></textarea>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Let's talk
-                        </button>
-                    </div>
-                </form>
+                @await Html.PartialAsync("/Views/Partials/_ContactForm.cshtml", new ContactFormViewModel())
             </div>
         </div>
     </div>

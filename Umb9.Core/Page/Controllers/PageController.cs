@@ -1,20 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
-using Microsoft.Extensions.Logging;
 using Umb9.Core.Shared.Controllers;
 using Umb9.Core.Shared.Services;
+using Umbraco.Cms.Core.Cache;
+using Umbraco.Cms.Core.Logging;
+using Umbraco.Cms.Core.Routing;
+using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
-using Umbraco.Cms.Web.Common.Controllers;
+using Umbraco.Cms.Infrastructure.Persistence;
 
 namespace Umb9.Core.Page.Controllers
 {
     /// <summary>
     /// Controller for the home document type
     /// </summary>
-    public class PageController : BaseRenderController
+    public class PageController : BaseController
     {
-        public PageController(CacheService cacheService, ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor)
-            : base(cacheService, logger, compositeViewEngine, umbracoContextAccessor)
+        public PageController(
+            CacheService cacheService,
+            IUmbracoContextAccessor umbracoContextAccessor,
+            IUmbracoDatabaseFactory databaseFactory,
+            ServiceContext services,
+            AppCaches appCaches,
+            IProfilingLogger profilingLogger,
+            IPublishedUrlProvider publishedUrlProvider) :
+            base(cacheService, umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
         {
         }
 
