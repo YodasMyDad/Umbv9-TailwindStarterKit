@@ -9,11 +9,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazored.FluentValidation" Version="2.0.1" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
     <PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Vali\" />
     <Folder Include="UmbracoModels\Partials\" />
   </ItemGroup>
 

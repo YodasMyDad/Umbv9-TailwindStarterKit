@@ -1,9 +1,12 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Umb9.Core.ContactForm.Validators;
+using Umb9.Core.Forms.Models;
 using Umb9.Core.Shared.Services;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
@@ -52,6 +55,7 @@ namespace Umb9.Site
             services.AddServerSideBlazor();
 
             services.AddScoped<CacheService>();
+            services.AddTransient<IValidator<ContactFormViewModel>, ContactFormValidator>();
         }
 
         /// <summary>

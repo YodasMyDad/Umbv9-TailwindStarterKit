@@ -23,7 +23,7 @@
 <body>
     <div class="min-h-screen bg-white">
 
-        @(await Html.RenderComponentAsync<Umb9.Site.Views.Components.Header>(RenderMode.ServerPrerendered, new { RootId = rootId }))
+        @(await Html.RenderComponentAsync<Umb9.Site.Components.Header>(RenderMode.ServerPrerendered, new { RootId = rootId }))
 
         <main>
             @RenderBody()

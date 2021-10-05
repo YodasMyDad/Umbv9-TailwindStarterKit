@@ -31,7 +31,8 @@
                 </div>
             </div>
             <div class="mt-12">
-                @await Html.PartialAsync("/Views/Partials/_ContactForm.cshtml", new ContactFormViewModel())
+                @*@await Html.PartialAsync("/Views/Partials/_ContactForm.cshtml", new ContactFormViewModel())*@
+                @(await Html.RenderComponentAsync<Umb9.Site.Components.ContactForm>(RenderMode.ServerPrerendered))
             </div>
         </div>
     </div>
