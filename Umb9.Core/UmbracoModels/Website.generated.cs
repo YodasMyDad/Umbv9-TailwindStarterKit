@@ -74,6 +74,14 @@ namespace Umb9.Core.UmbracoModels
 		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent UmbracoInternalRedirectID => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "umbracoInternalRedirectID");
 
 		///<summary>
+		/// Website Email: The main email address for this website. Used for the contact form.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("websiteEmail")]
+		public virtual string WebsiteEmail => this.Value<string>(_publishedValueFallback, "websiteEmail");
+
+		///<summary>
 		/// Website Logo: The logo for this website.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]

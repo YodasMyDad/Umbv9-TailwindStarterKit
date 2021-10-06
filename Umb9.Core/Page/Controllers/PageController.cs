@@ -34,6 +34,7 @@ namespace Umb9.Core.Page.Controllers
         /// <returns></returns>
         public IActionResult Page(UmbracoModels.Page model)
         {
+            model.RootNodeId = Website.Id;
             return CurrentTemplate(model);
         }
     }

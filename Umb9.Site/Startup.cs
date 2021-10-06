@@ -55,6 +55,7 @@ namespace Umb9.Site
             services.AddServerSideBlazor();
 
             services.AddScoped<CacheService>();
+            services.AddScoped<EmailService>();
             services.AddTransient<IValidator<ContactFormViewModel>, ContactFormValidator>();
         }
 
