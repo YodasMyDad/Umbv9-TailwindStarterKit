@@ -1,17 +1,18 @@
 # V9 Starter Site
 
-**!!Read Me - Work in progress!! Front end is 80% done, and then I want to add views and CSS for the backend so the block list matches the front end. However, this is all working but just not finished**
-
 This is just a play site I have created for me to learn the new Block List editor and to test Blazor works as expected in V9 without any major problems.
 
-Hopefully some of this site is useful for someone looking to start out with v9 and .Net 5. Some of the things this repo has in it which might be of interest to someone new to umbraco v9 :/
+Hopefully some of this site is useful for someone looking to start out with v9 and .Net 5. Some of the concepts this repo has in it which might be of interest to someone new to umbraco v9 :/
 
 - Uses a root node (Website) for settings with the home page set via umbracoInternalRedirectID
-- Uses Blazor for the header and the mobile navigation overlay (No JS)
-- Uses View Components to render the Block Lists
-- Uses Nested Block Lists and again renders with View Components
-- Uses Models Builder for all models
-- Uses Tailwind Css ([Main styles taken from the awesome Tailwind UI](https://tailwindui.com/))
+- Blazor for the header and the mobile navigation overlay (No JS)
+- Blazor and FluentValidation for the Contact Form Block
+- Example of using Blazor code behinds for components (+ Dependency injection and parameters)
+- View Components to render the Block Lists
+- Nested Block Lists and again renders with View Components
+- Models Builder for all models (Including custom partial classes to pass the root id around)
+- Tailwind Css ([Main styles taken from the awesome Tailwind UI](https://tailwindui.com/))
+- Fully working example of using Block List Editor, front and back end rendering, settings etc...
 
 ### Getting Started
 
@@ -32,8 +33,25 @@ The current blocks that come with it are shown below, they are (in order)
 - Feature Block
 - Call To Action Block
 - Question & Answer Block
+- Statistics Block
 - Article/Free Text Block
+- Content Boxes Block
+- Contact Form block
 
-I have plans for a couple of other blocks, which I'll add at the end.
+### Install Package
+
+TODO
+
+### Video
+
+TODO
+
+### Front End Screenshot
 
 ![](https://www.aptitude.co.uk/v9umb.png)
+
+### Back End Screenshot
+
+Custom views for block list editor used to get very similar editor experience.
+
+![](https://www.aptitude.co.uk/v9umb-be.png)
