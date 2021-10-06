@@ -1,13 +1,13 @@
-﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
+﻿@model Umb9.Core.Shared.Models.BlockListViewModel
 @{
-    var content = Model.Content as Umb9.Core.UmbracoModels.FeatureBox;
+    var content = Model.BlockListItem.Content as Umb9.Core.UmbracoModels.FeatureBox;
 }
 
 <div class="mt-6 bg-gray-50 rounded-lg">
     <div class="flow-root px-6 pb-8">
         <div class="-mt-6">
             <div>
-                <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">                    
+                <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
                     <img class="fill-current h-6 w-6 text-white" src="@content.SVgicon.MediaUrl()" alt="@content.Heading">
                 </span>
             </div>

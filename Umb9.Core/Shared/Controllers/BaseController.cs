@@ -14,9 +14,11 @@ namespace Umb9.Core.Shared.Controllers
     /// <summary>
     /// Base controller for all Umbraco page controllers
     /// </summary>
-    public class BaseController : SurfaceController, IRenderController
+    public abstract class BaseController : SurfaceController, IRenderController
     {
         private readonly Services.CacheService _cacheService;
+
+        private Website _website;
 
         public BaseController(Services.CacheService cacheService,
             IUmbracoContextAccessor umbracoContextAccessor,
@@ -54,8 +56,12 @@ namespace Umb9.Core.Shared.Controllers
         {
             get
             {
-                var rootSiteId = _cacheService.CachedRootContentId(CurrentPage);
-                return UmbracoContext.Content.GetById(rootSiteId) as Website;
+                if(_website == null)
+                {
+                    var rootSiteId = _cacheService.CachedRootContentId(CurrentPage);
+                    _website = UmbracoContext.Content.GetById(rootSiteId) as Website;
+                }
+                return _website;
             }
         }
     }

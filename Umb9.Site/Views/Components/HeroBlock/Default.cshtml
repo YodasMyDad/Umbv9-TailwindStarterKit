@@ -1,7 +1,7 @@
-﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
+﻿@model Umb9.Core.Shared.Models.BlockListViewModel
 @{
-    var content = Model.Content as Umb9.Core.UmbracoModels.HeroBlock;
-    var settings = Model.Settings as Umb9.Core.UmbracoModels.HeroBlockSettings;
+    var content = Model.BlockListItem.Content as Umb9.Core.UmbracoModels.HeroBlock;
+    var settings = Model.BlockListItem.Settings as Umb9.Core.UmbracoModels.HeroBlockSettings;
 }
 
 <div class="@(settings.PaddingTop.IsNullOrWhiteSpace() ? "" : $"pt-{settings.PaddingTop} ")@(settings.PaddingBottom.IsNullOrWhiteSpace() ? "" : $"pb-{settings.PaddingBottom}")">

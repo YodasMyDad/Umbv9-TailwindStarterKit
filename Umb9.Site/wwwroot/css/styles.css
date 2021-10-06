@@ -2107,6 +2107,11 @@ select {
   line-height: 1;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -2201,6 +2206,11 @@ select {
 .text-indigo-400 {
   --tw-text-opacity: 1;
   color: rgba(129, 140, 248, var(--tw-text-opacity));
+}
+
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgba(153, 27, 27, var(--tw-text-opacity));
 }
 
 .opacity-25 {

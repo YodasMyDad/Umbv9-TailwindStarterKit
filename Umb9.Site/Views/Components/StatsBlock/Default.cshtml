@@ -1,7 +1,7 @@
-﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
+﻿@model Umb9.Core.Shared.Models.BlockListViewModel
 @{
-    var content = Model.Content as Umb9.Core.UmbracoModels.StatsBlock;
-    var settings = Model.Settings as Umb9.Core.UmbracoModels.StatsSettings;
+    var content = Model.BlockListItem.Content as Umb9.Core.UmbracoModels.StatsBlock;
+    var settings = Model.BlockListItem.Settings as Umb9.Core.UmbracoModels.StatsSettings;
 }
 <div class="@(settings.PaddingTop.IsNullOrWhiteSpace() ? "" : $"pt-{settings.PaddingTop} ")@(settings.PaddingBottom.IsNullOrWhiteSpace() ? "" : $"pb-{settings.PaddingBottom}")">
     <div class="bg-gray-50 pt-12 sm:pt-16">

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Umbraco.Cms.Core.Models.Blocks;
+using Umb9.Core.Shared.Models;
 
 namespace Umb9.Core.Shared.Components.PageBuilder
 {
     [ViewComponent(Name = "contentBox")]
     public class ContentBoxViewComponent : ViewComponent
     {
-        public IViewComponentResult Invoke(BlockListItem model)
+        public IViewComponentResult Invoke(BlockListViewModel model)
         {
             return View(model);
         }

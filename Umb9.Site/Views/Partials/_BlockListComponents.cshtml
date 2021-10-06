@@ -1,9 +1,14 @@
-﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListModel
-@if (Model?.Any() == true)
+﻿@using Umb9.Core.Shared.Models
+@model (Umbraco.Cms.Core.Models.Blocks.BlockListModel, int)
+@{ 
+    var model = Model.Item1;
+    var websiteId = Model.Item2;
+}
+@if (model?.Any() == true)
 {
-    foreach (var block in Model)
+    foreach (var block in model)
     {
         if (block?.ContentUdi == null) { continue; }
-        @(await Component.InvokeAsync(block.Content.ContentType.Alias, block))
+        @(await Component.InvokeAsync(block.Content.ContentType.Alias, new BlockListViewModel(block, websiteId)))
     }
 }

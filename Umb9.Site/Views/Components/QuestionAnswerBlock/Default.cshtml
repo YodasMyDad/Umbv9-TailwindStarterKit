@@ -1,7 +1,7 @@
-﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
+﻿@model Umb9.Core.Shared.Models.BlockListViewModel
 @{
-    var content = Model.Content as Umb9.Core.UmbracoModels.QuestionAnswerBlock;
-    var settings = Model.Settings as Umb9.Core.UmbracoModels.QuestionAnswerSettings;
+    var content = Model.BlockListItem.Content as Umb9.Core.UmbracoModels.QuestionAnswerBlock;
+    var settings = Model.BlockListItem.Settings as Umb9.Core.UmbracoModels.QuestionAnswerSettings;
 }
 
 <div class="bg-white @(settings.PaddingTop.IsNullOrWhiteSpace() ? "" : $"pt-{settings.PaddingTop} ")@(settings.PaddingBottom.IsNullOrWhiteSpace() ? "" : $"pb-{settings.PaddingBottom}")">
@@ -17,7 +17,7 @@
             </div>
             <div class="mt-12 lg:mt-0 lg:col-span-2">
                 <div class="space-y-12">
-                    @(await Html.PartialAsync("_BlockListComponents", content.QuestionsAnswers))
+                    @(await Html.PartialAsync("_BlockListComponents", (content.QuestionsAnswers, Model.WebsiteId)))
                 </div>
             </div>
         </div>

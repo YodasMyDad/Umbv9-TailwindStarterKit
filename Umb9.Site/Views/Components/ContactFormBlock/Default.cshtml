@@ -1,8 +1,7 @@
-﻿@using Umb9.Core.Forms.Models 
-@model Umbraco.Cms.Core.Models.Blocks.BlockListItem
+﻿@model Umb9.Core.Shared.Models.BlockListViewModel
 @{
-    var content = Model.Content as Umb9.Core.UmbracoModels.ContactFormBlock;
-    var settings = Model.Settings as Umb9.Core.UmbracoModels.ContactFormSettings;
+    var content = Model.BlockListItem.Content as Umb9.Core.UmbracoModels.ContactFormBlock;
+    var settings = Model.BlockListItem.Settings as Umb9.Core.UmbracoModels.ContactFormSettings;
 }
 <div class="@(settings.PaddingTop.IsNullOrWhiteSpace() ? "" : $"pt-{settings.PaddingTop} ")@(settings.PaddingBottom.IsNullOrWhiteSpace() ? "" : $"pb-{settings.PaddingBottom}")">
 
@@ -32,7 +31,7 @@
             </div>
             <div class="mt-12">
                 @*@await Html.PartialAsync("/Views/Partials/_ContactForm.cshtml", new ContactFormViewModel())*@
-                @(await Html.RenderComponentAsync<Umb9.Site.Components.ContactForm>(RenderMode.ServerPrerendered))
+                @(await Html.RenderComponentAsync<Umb9.Site.Components.ContactForm>(RenderMode.ServerPrerendered, new { WebsiteId = Model.WebsiteId }))
             </div>
         </div>
     </div>

@@ -4,4 +4,4 @@
     Layout = "Master.cshtml";
 }
 
-@(await Html.PartialAsync("_BlockListComponents", Model.ContentBlocks))
+@(await Html.PartialAsync("_BlockListComponents", (Model.ContentBlocks, Model.RootNodeId)))

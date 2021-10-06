@@ -1,71 +1,80 @@
-﻿@using Umb9.Core.Forms.Models 
-
-<EditForm Model="@ContactFormModel" OnValidSubmit="@SubmitValidForm" class="grid grid-cols-1 gap-y-6 sm:gap-x-8">
-    <FluentValidationValidator @ref="fluentValidationValidator" DisableAssemblyScanning="@true" />
-    @*<ValidationSummary />*@
-
-    <div>
-        <label for="ContactFormModel.Name" class="block text-sm font-medium text-gray-700">Name</label>
-        <div class="mt-1">
-            <InputText @bind-Value="@ContactFormModel.Name" type="text" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
-            <ValidationMessage For="@(() => ContactFormModel.Name)" class="" />
+﻿@if (MessageSent)
+{
+    <div class="rounded-md bg-green-50 p-4">
+        <div class="flex">
+            <div class="flex-shrink-0">
+                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <div class="ml-3">
+                <p class="text-sm font-medium text-green-800">
+                    Form Sent
+                </p>
+            </div>
         </div>
     </div>
-    <div>
-        <label for="Company" class="block text-sm font-medium text-gray-700">Company</label>
-        <div class="mt-1">
-            <InputText @bind-Value="@ContactFormModel.Company" type="text" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
-            <ValidationMessage For="@(() => ContactFormModel.Company)" />
+}
+else
+{
+    <EditForm Model="@ContactFormModel" OnValidSubmit="@SubmitValidForm" class="grid grid-cols-1 gap-y-6 sm:gap-x-8">
+        <FluentValidationValidator @ref="fluentValidationValidator" DisableAssemblyScanning="@true" />
+        @*<ValidationSummary />*@
+
+        <div>
+            <label for="ContactFormModel.Name" class="block text-sm font-medium text-gray-700">Name</label>
+            <div class="mt-1">
+                <InputText @bind-Value="@ContactFormModel.Name" type="text" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
+                <div class="text-xs text-red-800 font-semibold">
+                    <ValidationMessage For="@(() => ContactFormModel.Name)" />
+                </div>
+            </div>
         </div>
-    </div>
-    <div>
-        <label for="Email" class="block text-sm font-medium text-gray-700">Email</label>
-        <div class="mt-1">
-            <InputText @bind-Value="@ContactFormModel.Email" type="email" autocomplete="email" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
-            <ValidationMessage For="@(() => ContactFormModel.Email)" />
+        <div>
+            <label for="Company" class="block text-sm font-medium text-gray-700">Company</label>
+            <div class="mt-1">
+                <InputText @bind-Value="@ContactFormModel.Company" type="text" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
+                <div class="text-xs text-red-800 font-semibold">
+                    <ValidationMessage For="@(() => ContactFormModel.Company)" />
+                </div>
+            </div>
         </div>
-    </div>
-    <div>
-        <label for="PhoneNumber" class="block text-sm font-medium text-gray-700">Phone Number</label>
-        <div class="mt-1">
-            <InputText @bind-Value="@ContactFormModel.PhoneNumber" type="text" autocomplete="tel" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" placeholder="01234 567890" />
-            <ValidationMessage For="@(() => ContactFormModel.PhoneNumber)" />
+        <div>
+            <label for="Email" class="block text-sm font-medium text-gray-700">Email</label>
+            <div class="mt-1">
+                <InputText @bind-Value="@ContactFormModel.Email" type="email" autocomplete="email" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
+                <div class="text-xs text-red-800 font-semibold">
+                    <ValidationMessage For="@(() => ContactFormModel.Email)" />
+                </div>
+            </div>
         </div>
-    </div>
-    <div>
-        <label for="Message" class="block text-sm font-medium text-gray-700">Message</label>
-        <div class="mt-1">
-            <InputTextArea @bind-Value="@ContactFormModel.Message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" />
-            <ValidationMessage For="@(() => ContactFormModel.Message)" />
+        <div>
+            <label for="PhoneNumber" class="block text-sm font-medium text-gray-700">Phone Number</label>
+            <div class="mt-1">
+                <InputText @bind-Value="@ContactFormModel.PhoneNumber" type="text" autocomplete="tel" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" placeholder="01234 567890" />
+                <div class="text-xs text-red-800 font-semibold">
+                    <ValidationMessage For="@(() => ContactFormModel.PhoneNumber)" />
+                </div>
+            </div>
         </div>
-    </div>
+        <div>
+            <label for="Message" class="block text-sm font-medium text-gray-700">Message</label>
+            <div class="mt-1">
+                <InputTextArea @bind-Value="@ContactFormModel.Message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" />
+                <div class="text-xs text-red-800 font-semibold">
+                    <ValidationMessage For="@(() => ContactFormModel.Message)" />
+                </div>
+            </div>
+        </div>
 
-    <div>
-        <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Let's talk
-        </button>
-    </div>
+        <div>
+            <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Let's talk
+            </button>
+        </div>
 
-    <div class="flex items-center justify-center">
-        <AnimatedSpinner Classes="h-8 w-8 text-indigo-400" Show="@ShowSpinner" />
-    </div>
-</EditForm>
-
-@code {
-    ContactFormViewModel ContactFormModel { get; set; } = new ContactFormViewModel();
-
-    private FluentValidationValidator fluentValidationValidator;
-
-    private bool ShowSpinner { get; set; }
-
-    void SubmitValidForm()
-    {
-        ShowSpinner = true;
-        Console.WriteLine("Form Submitted Successfully!");
-    }
-
-    //void PartialValidate()
-    //{
-    //    Console.WriteLine($"Partial validation result : {fluentValidationValidator.Validate(options => options.IncludeRuleSets("Names"))}");
-    //}
+        <div class="flex items-center justify-center">
+            <AnimatedSpinner Classes="h-8 w-8 text-indigo-400" Show="@ShowSpinner" />
+        </div>
+    </EditForm>
 }
