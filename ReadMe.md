@@ -48,7 +48,7 @@ TODO
 
 ### Front End Screenshot
 
-![](https://www.aptitude.co.uk/v9umb.png)
+![](https://www.aptitude.co.uk/v9umb.png?)
 
 ### Back End Screenshot
 
